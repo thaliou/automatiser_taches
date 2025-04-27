@@ -24,22 +24,21 @@ File.open("Gemfile", "w") do |f|
   f.puts "gem 'rspec'"
   f.puts "gem 'pry'"
   f.puts "gem 'rubocop', require: false"
+  f.close
 end
 puts "✅ Gemfile créé."
-
-# Initialise Git
-system("git init")
-puts "✅ Dépôt Git initialisé."
 
 # Crée un fichier .env
 File.open(".env", "w") do |f|
   f.puts "# Tes variables d'environnement ici"
+  f.close
 end
 puts "✅ Fichier .env créé."
 
 # Ajoute .env au .gitignore
 File.open(".gitignore", "a") do |f|
   f.puts ".env"
+  f.close
 end
 puts "✅ .env ajouté au .gitignore."
 
@@ -56,7 +55,12 @@ File.open("README.md", "w") do |f|
   f.puts "# #{project_name.capitalize}"
   f.puts
   f.puts "Ce projet est un programme Ruby."
+  f.close
 end
 puts "✅ README.md créé."
+
+# Initialise Git
+system("git init")
+puts "✅ Dépôt Git initialisé."
 
 puts "🎉 Projet Ruby '#{project_name}' prêt !"
